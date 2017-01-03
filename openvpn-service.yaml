@@ -9,4 +9,5 @@ spec:
       targetPort: 1194
   selector:
     name: openvpn
-  type: LoadBalancer
+#  type: LoadBalancer
+  type: NodePort

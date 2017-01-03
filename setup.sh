@@ -14,6 +14,9 @@ export KEY_EMAIL=estevez.sebastian@gmail.com
 export HOSTNAME=$(hostname)
 ./build-ca
 ./build-key-pkcs12 client
+kubectl delete rc openvpn
+kubectl delete svc openvpn
+kubectl delete secret openvpn
 kubectl create secret generic openvpn --from-file=dh.pem=./dh2048.pem --from-file=certs.p12=client.p12
 kubectl create -f openvpn-controller.yaml
 kubectl create -f openvpn-service.yaml
